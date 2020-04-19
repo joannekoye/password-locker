@@ -1,5 +1,6 @@
 #!/usr/bin/env python3.6
 
+import random
 from user import User
 
 def create_user(platform, fname, lname, uname, pword):
@@ -47,7 +48,7 @@ def main():
             print("Existing Account")
             print("-"*16)
 
-            print('Platform on which existing account is based: (e.g. Instagram, Twitter, etc.')
+            print('Platform on which existing account is based: (e.g. Instagram, Twitter, etc.)')
             platform = input()
 
             print ("First name registered on existing account:")
@@ -59,7 +60,7 @@ def main():
             print('Username registered on existing account:')
             username = input()
 
-            print('Password registered on existing account: (Your password is safe with us')
+            print('Password registered on existing account: (Your password is safe with us)')
             password = input()
 
             save_user(create_user(platform, firstname, lastname, username, password))
@@ -73,4 +74,41 @@ def main():
             print("New Account")
             print("-"*11)
 
-            print
+            print('Platform on which new account will be based: (e.g. Instagram, Twitter, etc.) ')
+            platform = input()
+
+            print ("First name:")
+            firstname = input()
+
+            print ("Last name:")
+            lastname = input()
+
+            print('Prefered username:')
+            username = input()
+
+            print('Password Generation for new account:')
+            print('_'*20)
+            print('\n')
+
+            while True:
+                print('Use the following short codes to tell us if you would like to set your own password or if you would like a system generated password: own - your own password, sys - system generated password')
+            
+                passcode = input().lower()
+
+                if passcode == 'own':
+                    print('Kindly enter your prefered password: (Your password is safe with us)')
+                    password = input()
+
+                elif passcode == 'sys':
+                    password = random.randint(34567,98756)
+
+                else:
+                    print("I really didn't get that. Please use the short codes")
+            
+
+            save_user(create_user(platform, firstname, lastname, username, password))
+
+
+        elif short_code == 'del':
+
+            
