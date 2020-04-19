@@ -19,3 +19,17 @@ def save_user(user):
 
 def del_user(user):
     '''
+    Function to delete a user
+    '''
+    user.delete_user()
+
+
+def display_users():
+    '''
+    Function that returns all saved users
+    '''
+    return User.display_users()
+
+
+def main():
+    print('Hello, Welcome to Password Locker')
