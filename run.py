@@ -26,25 +26,12 @@ def del_user(ind):
     Credentials.delete_user(ind)
 
 
-def display_users():
+def display_credentials():
     '''
     Function that returns all saved users
     '''
-    return Credentials.display_users()
+    return Credentials.display_credentials()
 
-
-# def find_credentials(platform, username):
-#     '''
-#     Function that finds user credentials
-#     '''
-#     return Credentials.find_credential(platform,username)
-    
-
-# def find_credentials_index(platform, username):
-#     '''
-#     Function that finds user credentials index
-#     '''
-#     return Credentials.find_credential_index(platform,username)
 
 def main():
     print('Hello! Welcome to Password Locker. What is your name?')
@@ -144,7 +131,7 @@ def main():
 
             if del_username and del_platform :
                 found_credentials = Credentials.find_credential(del_platform,del_username)
-                # found_credentials_index = find_credentials_index(del_platform, del_username)
+                
                 if found_credentials:
                     print(f'The following account is going to be permanetly deleted => {found_credentials.platform}:{found_credentials.username}')
                     print('\n')
@@ -162,13 +149,13 @@ def main():
             print("View Credentials")
             print("-"*16)
 
-            if display_users():
+            if display_credentials():
                 print('\n')
 
                 print("Here is a list of all your credentials:")
                 print('\n')
 
-                for user in display_users():
+                for user in display_credentials():
                     print(f'{user.platform} account, Username: {user.username}, Password : {user.password}')
 
             else:

@@ -25,3 +25,11 @@ class TestCredentials(unittest.TestCase):
         tearDown method that does clean up after each test case has run.
         '''
         Credentials.new_user_list = []
+
+
+    def test_display_all_credentials(self):
+        '''
+        method that returns a list of all users saved
+        '''
+
+        self.assertEqual(Credentials.display_credentials(), Credentials.new_user_list)

@@ -30,10 +30,5 @@ class User:
         User.user_list.append(self)
 
         
-    @classmethod
-    def display_users(cls):
-        '''
-        method that returns the user list
-        '''
-        return cls.user_list
+    
 

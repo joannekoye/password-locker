@@ -34,7 +34,7 @@ class Credentials:
 
 
     @classmethod
-    def display_users(cls):
+    def display_credentials(cls):
         '''
         method that returns the user list
         '''
