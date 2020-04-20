@@ -25,12 +25,12 @@ class Credentials:
         self.password = password
     
     @classmethod
-    def delete_user(cls,func):
+    def delete_user(cls,credential):
         '''
         delete_user method deletes a user from the user_list
         '''
 
-        Credentials.new_user_list.remove(func)
+        Credentials.new_user_list.remove(credential)
 
 
     @classmethod

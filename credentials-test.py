@@ -33,3 +33,7 @@ class TestCredentials(unittest.TestCase):
         '''
 
         self.assertEqual(Credentials.display_credentials(), Credentials.new_user_list)
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
