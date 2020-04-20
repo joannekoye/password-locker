@@ -44,6 +44,7 @@ def main():
     while True:
         print('\n')
         print('Use the following short codes to tell us how to help you: ce - collect existing credentials, cn - create new account on a new platform and have credentials saved here, del - delete existing credentials, vw - view saved credentials, ex - exit the application')
+        print('\n')
         short_code = input().lower()
 
         if short_code == 'ce':
@@ -97,7 +98,7 @@ def main():
 
             print('\n')
             print('Use the following short codes to tell us if you would like to set your own password or if you would like a system generated password: own - your own password, sys - system generated password')
-            
+            print('\n')
             passcode = input().lower()
 
             if passcode == 'own':
