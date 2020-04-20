@@ -156,6 +156,25 @@ def main():
             if display_users():
                 print('\n')
 
+                print("Here is a list of all your credentials:")
+                print('\n')
 
+                for user in display_users():
+                    print(f'{user.platform}Account, Username: {user.username}, Password : {user.password}')
 
-            
+            else:
+                print('\n')
+                print("You dont seem to have any credentials saved yet")
+                print('\n')
+
+        elif short_code == "ex":
+            print("Goodbye")
+            break
+
+        else:
+            print("I really didn't get that. Please use the short codes")
+        
+
+if __name__ == '__main__':
+
+    main()
