@@ -162,9 +162,9 @@ def main():
                 print('\n')
 
                 for user in display_credentials():
-                    print('\n')
+                    
                     print(f'{user.platform} account, Username: {user.username}, Password : {user.password}')
-                    print('\n')
+                    
 
             else:
                 print('\n')
