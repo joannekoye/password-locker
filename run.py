@@ -2,6 +2,7 @@
 
 import random
 from user import User
+from credentials import Credentials
 
 def create_user(platform, fname, lname, uname, pword):
     '''
@@ -18,18 +19,26 @@ def save_user(user):
     user.save_user()
 
 
-def del_user(user):
+def del_user(credentials):
     '''
     Function to delete a user
     '''
-    user.delete_user()
+    credentials.delete_user()
 
 
 def display_users():
     '''
     Function that returns all saved users
     '''
-    return User.display_users()
+    return Credentials.display_users()
+
+
+def find_credentials(platform, username):
+    '''
+    Function that finds user credentials
+    '''
+    return Credentials.find_credential(platform,username)
+    
 
 
 def main():
@@ -110,5 +119,24 @@ def main():
 
 
         elif short_code == 'del':
+            print("-"*14)
+            print("Delete Account")
+            print("-"*14)
+
+            print('Kindly enter the name of the platform to be deleted:')
+            del_platform = input()
+
+            print('Kindly enter username of account to be deleted:')
+            del_username = input()
+
+            if del_username & del_platform :
+                found_credentials = find_credentials(del_platform,del_username)
+                
+                
+                print(f'The following account is going to be permanetly deleted: {found_credentials.platform}:{found_credentials.platform}')
+                print('\n')
+
+                
+
 
             
