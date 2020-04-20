@@ -19,11 +19,11 @@ def save_user(user):
     user.save_user()
 
 
-def del_user(credentials):
+def del_user(ind):
     '''
     Function to delete a user
     '''
-    credentials.delete_user()
+    Credentials.delete_user(ind)
 
 
 def display_users():
@@ -40,6 +40,11 @@ def find_credentials(platform, username):
     return Credentials.find_credential(platform,username)
     
 
+def find_credentials_index(platform, username):
+    '''
+    Function that finds user credentials index
+    '''
+    return Credentials.find_credential_index(platform,username)
 
 def main():
     print('Hello! Welcome to Password Locker. What is your name?')
@@ -49,7 +54,7 @@ def main():
     print('\n')
 
     while True:
-        print('Use the following short codes to tell us how to help you: ce - collect existing credentials, cn - create new account on a new platform and have credentials saved here, del - delete existing credentials, ex - exit the application')
+        print('Use the following short codes to tell us how to help you: ce - collect existing credentials, cn - create new account on a new platform and have credentials saved here, del - delete existing credentials, vw - view saved credentials, ex - exit the application')
         short_code = input().lower()
 
         if short_code == 'ce':
@@ -131,12 +136,26 @@ def main():
 
             if del_username & del_platform :
                 found_credentials = find_credentials(del_platform,del_username)
+                found_credentials_index = find_credentials_index(del_platform, del_username)
                 
-                
-                print(f'The following account is going to be permanetly deleted: {found_credentials.platform}:{found_credentials.platform}')
+                print(f'The following account is going to be permanetly deleted => {found_credentials.platform}:{found_credentials.username}')
                 print('\n')
 
-                
+                del_user(found_credentials_index.ind)
+
+
+            else:
+                print("Credentials not available")
+
+        
+        elif short_code == 'vw':
+            print("-"*16)
+            print("View Credentials")
+            print("-"*16)
+
+            if display_users():
+                print('\n')
+
 
 
             

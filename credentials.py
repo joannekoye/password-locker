@@ -24,12 +24,13 @@ class Credentials:
         self.username = username
         self.password = password
 
-    def delete_user(self):
+    @classmethod
+    def delete_user(cls,ind):
         '''
         delete_user method deletes a user from the user_list
         '''
 
-        Credentials.new_user_list.remove(self)
+        Credentials.new_user_list.pop(ind)
 
 
     @classmethod
@@ -53,4 +54,16 @@ class Credentials:
         '''
         for credential in cls.new_user_list:
             if credential.platform == platform & credential.username == username:
-                return credential
+                return credential 
+
+
+    @classmethod
+    def find_credential_index(cls,platform,username):
+        '''
+        Method that searches for credential indexes.
+
+        '''
+        for credential in cls.new_user_list:
+            if credential.platform == platform & credential.username == username:
+                ind = cls.new_user_list.index(credential)
+                return ind
