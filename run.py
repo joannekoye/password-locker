@@ -39,10 +39,9 @@ def main():
     name = input()
     print('\n')
     print(f'Hi, {name}. What would you like to do today?')
-    print('\n')
+    
 
     while True:
-        print('\n')
         print('\n')
         print('Use the following short codes to tell us how to help you: ce - collect existing credentials, cn - create new account on a new platform and have credentials saved here, del - delete existing credentials, vw - view saved credentials, ex - exit the application')
         short_code = input().lower()
@@ -158,7 +157,6 @@ def main():
 
             if display_credentials():
                 print('\n')
-
                 print("Here is a list of all your credentials:")
                 print('\n')
 
@@ -173,7 +171,6 @@ def main():
                 print('\n')
 
         elif short_code == "ex":
-            print('\n')
             print('\n')
             print("GOODBYE!")
             print('\n')
