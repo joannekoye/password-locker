@@ -16,7 +16,7 @@ class TestCredentials(unittest.TestCase):
         '''
         Set up method to run before each test case.
         '''
-        self.new_user = Credentials('Twitter', 'Joan', 'Nekoye','NekoyeJoan','12345')
+        self.new_user_list = Credentials('Twitter', 'Joan', 'Nekoye','NekoyeJoan','12345')
 
 
 
@@ -25,6 +25,18 @@ class TestCredentials(unittest.TestCase):
         tearDown method that does clean up after each test case has run.
         '''
         Credentials.new_user_list = []
+
+
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+
+        self.assertEqual(self.new_user_list.platform,"Twitter")
+        self.assertEqual(self.new_user_list.first_name,"Joan")
+        self.assertEqual(self.new_user_list.last_name,"Nekoye")
+        self.assertEqual(self.new_user_list.username,"NekoyeJoan")
+        self.assertEqual(self.new_user_list.password,"12345")
 
 
     def test_display_all_credentials(self):
