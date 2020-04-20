@@ -34,6 +34,7 @@ def display_credentials():
 
 
 def main():
+    print('\n')
     print('Hello! Welcome to Password Locker. What is your name?')
     name = input()
     print('\n')
@@ -41,6 +42,8 @@ def main():
     print('\n')
 
     while True:
+        print('\n')
+        print('\n')
         print('Use the following short codes to tell us how to help you: ce - collect existing credentials, cn - create new account on a new platform and have credentials saved here, del - delete existing credentials, vw - view saved credentials, ex - exit the application')
         short_code = input().lower()
 
@@ -93,12 +96,13 @@ def main():
             print('-'*35)
             
 
-            
+            print('\n')
             print('Use the following short codes to tell us if you would like to set your own password or if you would like a system generated password: own - your own password, sys - system generated password')
             
             passcode = input().lower()
 
             if passcode == 'own':
+                print('\n')
                 print('Kindly enter your prefered password: (Your password is safe with us)')
                 password = input()
                 print('\n')
@@ -106,12 +110,14 @@ def main():
                 print("Account setup complete")
 
             elif passcode == 'sys':
+                    print('\n')
                     password = random.randint(34567,98756)
                     print('\n')
                     print("Password generation is SUCCESSFUL!")
                     print("Account setup complete")
 
             else:
+                print('\n')
                 print("I really didn't get that. Please use the short codes")
             
 
@@ -133,6 +139,7 @@ def main():
                 found_credentials = Credentials.find_credential(del_platform,del_username)
                 
                 if found_credentials:
+                    print('\n')
                     print(f'The following account is going to be permanetly deleted => {found_credentials.platform}:{found_credentials.username}')
                     print('\n')
 
@@ -156,7 +163,9 @@ def main():
                 print('\n')
 
                 for user in display_credentials():
+                    print('\n')
                     print(f'{user.platform} account, Username: {user.username}, Password : {user.password}')
+                    print('\n')
 
             else:
                 print('\n')
@@ -167,12 +176,14 @@ def main():
             print('\n')
             print('\n')
             print("GOODBYE!")
+            print('\n')
             break
 
         else:
+            print('\n')
             print("I really didn't get that. Please use the short codes")
+            print('\n')
         
 
 if __name__ == '__main__':
-
     main()
