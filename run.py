@@ -150,8 +150,11 @@ def main():
                     print('\n')
 
                     del_user(found_credentials)
+
                 else:
+                    print('\n')
                     print("Credentials not available")
+                    print('\n')
 
         
         elif short_code == 'vw':
@@ -174,6 +177,8 @@ def main():
                 print('\n')
 
         elif short_code == "ex":
+            print('\n')
+            print('\n')
             print("GOODBYE!")
             break
 

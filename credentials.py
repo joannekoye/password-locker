@@ -52,20 +52,13 @@ class Credentials:
         Returns :
             User credentials of person that matches the platfofrm and username.
         '''
-        if len(cls.new_user_list)>0:
+        if len(cls.new_user_list)> 0:
             for credential in cls.new_user_list:
                 if credential.platform == platform and credential.username == username:
                     return credential 
-        return None
+        else:
+            return None
 
 
-    @classmethod
-    def find_credential_index(cls,platform,username):
-        '''
-        Method that searches for credential indexes.
 
-        '''
-        for credential in cls.new_user_list:
-            if credential.platform == platform & credential.username == username:
-                ind = cls.new_user_list.index(credential)
-                return ind
+    
