@@ -43,7 +43,7 @@ def main():
 
     while True:
         print('\n')
-        print('Use the following short codes to tell us how to help you: ce - collect existing credentials, cn - create new account on a new platform and have credentials saved here, del - delete existing credentials, vw - view saved credentials, ex - exit the application')
+        print('Use the following short codes to tell us how to help you: ce - collect existing credentials, cn - create new account on a new platform and have credentials saved here, vw - view saved credentials, del - delete existing credentials, ex - exit the application')
         print('\n')
         short_code = input().lower()
 
