@@ -23,14 +23,14 @@ class Credentials:
         self.last_name = last_name
         self.username = username
         self.password = password
-
+    
     @classmethod
-    def delete_user(cls,ind):
+    def delete_user(cls,func):
         '''
         delete_user method deletes a user from the user_list
         '''
 
-        Credentials.new_user_list.pop(ind)
+        Credentials.new_user_list.remove(func)
 
 
     @classmethod
@@ -52,9 +52,11 @@ class Credentials:
         Returns :
             User credentials of person that matches the platfofrm and username.
         '''
-        for credential in cls.new_user_list:
-            if credential.platform == platform & credential.username == username:
-                return credential 
+        if len(cls.new_user_list)>0:
+            for credential in cls.new_user_list:
+                if credential.platform == platform and credential.username == username:
+                    return credential 
+        return None
 
 
     @classmethod

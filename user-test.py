@@ -63,7 +63,7 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user()
         test_user = User('Instagram','Mark','Gitau','gitaugram','6789')
         test_user.save_user()
-        self.new_user.delete_user()
+
         self.assertEqual(len(User.user_list),1)
 
 
@@ -74,4 +74,4 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(User.display_users(), User.user_list)
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)

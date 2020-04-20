@@ -33,24 +33,24 @@ def display_users():
     return Credentials.display_users()
 
 
-def find_credentials(platform, username):
-    '''
-    Function that finds user credentials
-    '''
-    return Credentials.find_credential(platform,username)
+# def find_credentials(platform, username):
+#     '''
+#     Function that finds user credentials
+#     '''
+#     return Credentials.find_credential(platform,username)
     
 
-def find_credentials_index(platform, username):
-    '''
-    Function that finds user credentials index
-    '''
-    return Credentials.find_credential_index(platform,username)
+# def find_credentials_index(platform, username):
+#     '''
+#     Function that finds user credentials index
+#     '''
+#     return Credentials.find_credential_index(platform,username)
 
 def main():
     print('Hello! Welcome to Password Locker. What is your name?')
     name = input()
-
-    print(f'Hi, {name}. What woul you like to do today?')
+    print('\n')
+    print(f'Hi, {name}. What would you like to do today?')
     print('\n')
 
     while True:
@@ -100,28 +100,36 @@ def main():
             print('Prefered username:')
             username = input()
 
-            print('Password Generation for new account:')
-            print('_'*20)
             print('\n')
-
-            while True:
-                print('Use the following short codes to tell us if you would like to set your own password or if you would like a system generated password: own - your own password, sys - system generated password')
+            print('-'*35)
+            print('Password Generation for new account:')
+            print('-'*35)
             
-                passcode = input().lower()
 
-                if passcode == 'own':
-                    print('Kindly enter your prefered password: (Your password is safe with us)')
-                    password = input()
+            
+            print('Use the following short codes to tell us if you would like to set your own password or if you would like a system generated password: own - your own password, sys - system generated password')
+            
+            passcode = input().lower()
 
-                elif passcode == 'sys':
+            if passcode == 'own':
+                print('Kindly enter your prefered password: (Your password is safe with us)')
+                password = input()
+                print('\n')
+                print('Password stored successfully')
+                print("Account setup complete")
+
+            elif passcode == 'sys':
                     password = random.randint(34567,98756)
+                    print('\n')
+                    print("Password generation is SUCCESSFUL!")
+                    print("Account setup complete")
 
-                else:
-                    print("I really didn't get that. Please use the short codes")
+            else:
+                print("I really didn't get that. Please use the short codes")
             
 
             save_user(create_user(platform, firstname, lastname, username, password))
-
+            print('\n')
 
         elif short_code == 'del':
             print("-"*14)
@@ -134,18 +142,16 @@ def main():
             print('Kindly enter username of account to be deleted:')
             del_username = input()
 
-            if del_username & del_platform :
-                found_credentials = find_credentials(del_platform,del_username)
-                found_credentials_index = find_credentials_index(del_platform, del_username)
-                
-                print(f'The following account is going to be permanetly deleted => {found_credentials.platform}:{found_credentials.username}')
-                print('\n')
+            if del_username and del_platform :
+                found_credentials = Credentials.find_credential(del_platform,del_username)
+                # found_credentials_index = find_credentials_index(del_platform, del_username)
+                if found_credentials:
+                    print(f'The following account is going to be permanetly deleted => {found_credentials.platform}:{found_credentials.username}')
+                    print('\n')
 
-                del_user(found_credentials_index.ind)
-
-
-            else:
-                print("Credentials not available")
+                    del_user(found_credentials)
+                else:
+                    print("Credentials not available")
 
         
         elif short_code == 'vw':
@@ -160,7 +166,7 @@ def main():
                 print('\n')
 
                 for user in display_users():
-                    print(f'{user.platform}Account, Username: {user.username}, Password : {user.password}')
+                    print(f'{user.platform} account, Username: {user.username}, Password : {user.password}')
 
             else:
                 print('\n')
@@ -168,7 +174,7 @@ def main():
                 print('\n')
 
         elif short_code == "ex":
-            print("Goodbye")
+            print("GOODBYE!")
             break
 
         else:
